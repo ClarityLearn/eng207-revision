@@ -1,0 +1,552 @@
+/* ENG207 Final Revision — Shared Styles (Dracula-inspired) */
+
+:root {
+  /* Aligned with riselab-prezy/css/presentation_styles.css brand */
+  --bg: #282a36;
+  --bg-soft: #21222c;
+  --panel: #44475a;       /* brand --prezy-bg-light */
+  --border: #6272a4;      /* brand --prezy-border */
+  --fg: #f8f8f2;
+  --muted: #6272a4;
+  --accent: #0ea5e9;       /* brand sky blue (heading/accent) */
+  --cyan: #8be9fd;
+  --green: #50fa7b;
+  --yellow: #f1fa8c;
+  --orange: #ffb86c;
+  --pink: #ff79c6;
+  --purple: #bd93f9;
+  --red: #ff5555;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+  line-height: 1.5;
+}
+
+body { padding-bottom: 40px; }
+
+a { color: var(--cyan); text-decoration: none; }
+a:hover { color: var(--purple); }
+
+/* ------- Top bar ------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  backdrop-filter: blur(6px);
+}
+.topbar .back {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  color: var(--cyan);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.topbar .back:hover { background: var(--border); }
+.topbar h1 {
+  margin: 0;
+  font-size: 1.15em;
+  color: var(--accent);
+  flex-grow: 1;
+}
+.topbar .subtitle {
+  color: var(--muted);
+  font-size: 0.9em;
+}
+
+/* ------- Landing (index) ------- */
+.hero {
+  text-align: center;
+  padding: 60px 20px 30px;
+}
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: 2.6em;
+  color: #fff;
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+}
+.hero .subtitle {
+  color: var(--accent);
+  font-size: 1.2em;
+  margin-bottom: 6px;
+}
+.hero .logo {
+  height: 110px;
+  margin-bottom: 18px;
+}
+.hero .arabic {
+  color: var(--orange);
+  font-size: 1.15em;
+  direction: rtl;
+}
+
+.chapters {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.chapters a.chapter-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  display: block;
+  color: var(--fg);
+  transition: all 0.2s;
+}
+.chapters a.chapter-card:hover {
+  border-color: var(--purple);
+  transform: translateY(-2px);
+  background: var(--border);
+}
+.chapters .num {
+  color: var(--cyan);
+  font-size: 0.85em;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+.chapters .title {
+  display: block;
+  margin-top: 6px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: var(--accent);
+}
+.chapters .title-ar {
+  display: block;
+  color: var(--orange);
+  margin-top: 4px;
+  direction: rtl;
+  font-size: 0.95em;
+}
+
+/* ------- Main content ------- */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+section {
+  margin: 30px 0;
+}
+section > h2 {
+  color: var(--accent);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+section > h2 .badge {
+  font-size: 0.55em;
+  padding: 3px 8px;
+  border-radius: 12px;
+  background: var(--border);
+  color: var(--accent);
+  font-weight: normal;
+}
+
+/* ------- Quiz grid ------- */
+.quiz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 14px;
+}
+.quiz-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+}
+.quiz-card .q-num {
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 0.85em;
+  margin-bottom: 6px;
+}
+.quiz-card .q {
+  font-weight: bold;
+  margin: 0 0 12px;
+  line-height: 1.35;
+}
+.quiz-card .q .ar {
+  display: block;
+  color: var(--orange);
+  font-weight: normal;
+  font-size: 0.9em;
+  direction: rtl;
+  margin-top: 4px;
+}
+.quiz-card .options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.quiz-card .opt {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-size: 0.95em;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.quiz-card .opt .ar {
+  color: var(--orange);
+  font-size: 0.85em;
+  direction: rtl;
+}
+.quiz-card .opt:hover { border-color: var(--muted); background: var(--border); }
+.quiz-card .opt.selected { border-color: var(--purple); background: var(--border); }
+
+.quiz-card.revealed .opt { cursor: default; }
+.quiz-card.revealed .opt.correct {
+  border-color: var(--green);
+  background: rgba(80, 250, 123, 0.15);
+}
+.quiz-card.revealed .opt.wrong.selected {
+  border-color: var(--red);
+  background: rgba(255, 85, 85, 0.15);
+}
+.quiz-card.revealed .opt.correct.selected {
+  border-color: var(--green);
+  background: rgba(80, 250, 123, 0.3);
+}
+
+.quiz-card .explanation {
+  display: none;
+  margin-top: 10px;
+  padding: 8px 10px;
+  border-left: 3px solid var(--green);
+  background: rgba(80, 250, 123, 0.07);
+  font-size: 0.88em;
+  border-radius: 4px;
+}
+.quiz-card .explanation .ar {
+  display: block;
+  color: var(--orange);
+  direction: rtl;
+  margin-top: 4px;
+}
+.quiz-card.revealed .explanation { display: block; }
+
+.reveal-btn {
+  margin-top: 10px;
+  align-self: flex-start;
+  background: var(--muted);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85em;
+  font-weight: bold;
+}
+.reveal-btn:hover { background: var(--purple); }
+.quiz-card.revealed .reveal-btn { display: none; }
+
+/* ------- Short Answer / Theory boxes ------- */
+.short-answer {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 14px;
+}
+.short-answer .q {
+  font-weight: bold;
+  color: var(--fg);
+  margin: 0 0 6px;
+}
+.short-answer .q-ar {
+  color: var(--orange);
+  direction: rtl;
+  margin-bottom: 10px;
+  display: block;
+  font-size: 0.95em;
+}
+.short-answer details {
+  margin-top: 8px;
+}
+.short-answer summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 0.9em;
+  user-select: none;
+  list-style: none;
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--border);
+  border-radius: 5px;
+}
+.short-answer summary::before { content: "▶ "; font-size: 0.7em; }
+.short-answer details[open] summary::before { content: "▼ "; }
+.short-answer .answer {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--green);
+  background: rgba(80, 250, 123, 0.07);
+  border-radius: 4px;
+}
+.short-answer .answer .ar {
+  display: block;
+  color: var(--orange);
+  direction: rtl;
+  margin-top: 4px;
+  font-size: 0.9em;
+}
+
+/* ------- Exercises ------- */
+.exercise {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 16px;
+}
+.exercise h3 {
+  margin: 0 0 10px;
+  color: var(--accent);
+}
+.exercise .prompt {
+  margin-bottom: 10px;
+}
+.exercise .prompt .ar {
+  display: block;
+  color: var(--orange);
+  direction: rtl;
+  font-size: 0.9em;
+  margin-top: 4px;
+}
+.exercise pre {
+  background: var(--bg-soft) !important;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px !important;
+  overflow-x: auto;
+  font-size: 0.9em;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+.exercise pre code {
+  font-family: "Fira Code", "Consolas", monospace;
+}
+
+/* Reveal-answer button (auto-injected by quiz.js into each .exercise) */
+.exercise .show-answer-btn {
+  margin-top: 10px;
+  background: var(--muted);
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+.exercise .show-answer-btn:hover { background: var(--purple); }
+.exercise.revealed .show-answer-btn { display: none; }
+
+/* By default hide answer artefacts. Reveal once user clicks Show. */
+.exercise .answer-line {
+  display: block;
+  margin: 0 -16px;
+  padding: 0 16px;
+  border-left: 3px solid transparent;
+}
+.exercise.revealed .answer-line {
+  background: rgba(80, 250, 123, 0.18);
+  border-left-color: var(--green);
+}
+
+.exercise pre.answer-code,
+.exercise .output,
+.exercise .answer-box {
+  display: none;
+}
+.exercise.revealed pre.answer-code { display: block; }
+.exercise.revealed .output {
+  display: block;
+  margin-top: 8px;
+  padding: 10px 14px;
+  background: var(--bg-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  font-family: "Consolas", monospace;
+  font-size: 0.88em;
+  white-space: pre-wrap;
+}
+.exercise.revealed .answer-box {
+  display: block;
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--green);
+  background: rgba(80, 250, 123, 0.07);
+  border-radius: 4px;
+}
+.exercise .answer-box .ar {
+  color: var(--orange);
+  direction: rtl;
+  margin-top: 4px;
+  font-size: 0.9em;
+}
+.exercise.revealed .answer-box .ar { display: block; }
+.exercise .answer-box strong { color: var(--green); }
+
+/* Inline highlight chip used in exercise answers */
+.exercise .pill {
+  display: inline-block;
+  background: rgba(14, 165, 233, 0.15);
+  color: var(--accent);
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-family: "Consolas", monospace;
+  font-size: 0.9em;
+  border: 1px solid var(--border);
+}
+
+/* ------- Footer ------- */
+.page-footer {
+  margin-top: 50px;
+  padding: 36px 20px;
+  text-align: center;
+  background: var(--panel);
+  border-top: 2px solid var(--border);
+  border-radius: 12px;
+}
+.page-footer .logo {
+  height: 90px;
+  margin-bottom: 6px;
+}
+.page-footer .tagline {
+  color: var(--muted);
+  font-size: 0.9em;
+  margin-bottom: 16px;
+}
+.page-footer .thanks {
+  font-size: 1.6em;
+  color: var(--accent);
+  margin: 18px 0 6px;
+}
+.page-footer .thanks-ar {
+  font-size: 1.4em;
+  color: var(--orange);
+  direction: rtl;
+  margin-bottom: 20px;
+}
+.page-footer .links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.page-footer a.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: bold;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  color: var(--fg);
+  transition: all 0.2s;
+}
+.page-footer a.btn:hover { transform: translateY(-1px); }
+.page-footer a.btn.youtube {
+  background: #FF0000;
+  color: white;
+  border-color: #cc0000;
+}
+.page-footer a.btn.youtube:hover { background: #cc0000; color: white; }
+
+/* ------- Misc ------- */
+.note {
+  font-size: 0.88em;
+  color: var(--muted);
+  margin: 8px 0;
+}
+.bilingual { display: block; }
+.bilingual .ar {
+  display: block;
+  color: var(--orange);
+  direction: rtl;
+  font-size: 0.9em;
+  margin-top: 2px;
+}
+
+/* ------- Chapter navigation (prev / next) ------- */
+.chapter-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 24px 0;
+}
+.chapter-nav a {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 18px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--fg);
+  transition: all 0.2s;
+  min-height: 64px;
+  justify-content: center;
+}
+.chapter-nav a:hover {
+  border-color: var(--accent);
+  background: #4a4f6a;
+  transform: translateY(-1px);
+}
+.chapter-nav .label {
+  color: var(--muted);
+  font-size: 0.78em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.chapter-nav .title {
+  margin-top: 4px;
+  color: var(--accent);
+  font-weight: bold;
+}
+.chapter-nav a.prev { text-align: left; }
+.chapter-nav a.next { text-align: right; align-items: flex-end; }
+.chapter-nav a.disabled {
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+@media (max-width: 700px) {
+  .topbar h1 { font-size: 1em; }
+  .hero h1 { font-size: 1.6em; }
+  .quiz-grid { grid-template-columns: 1fr; }
+  .chapter-nav { grid-template-columns: 1fr; }
+}
